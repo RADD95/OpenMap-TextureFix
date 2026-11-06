@@ -1233,7 +1233,11 @@ local dummy = CreateFrame("Frame"):CreateTexture()
 local mt = getmetatable(dummy).__index
 
 hooksecurefunc(mt, "SetTexture", function(self, file, wrapU, wrapV, filterMode)
-	if type(file) == "number" and overrides[file] then
+	if issecretvalue and issecretvalue(file) then return end
+	local ok, isOverridden = pcall(function()
+		return type(file) == "number" and overrides[file]
+	end)
+	if ok and isOverridden then
 		self:SetTexture(TEX_PATH .. file .. ".blp", wrapU, wrapV, filterMode)
 	end
 end)
