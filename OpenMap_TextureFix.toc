@@ -1,0 +1,8 @@
+## Interface: 16001
+## Title: OpenMap TextureFix
+## Notes: Restores missing dungeon and cave textures for OpenMap in non-English clients
+## Version: 1.0.0
+## Dependencies: OpenMap
+## IconTexture: Interface\AddOns\OpenMap_TextureFix\icon.png
+
+Core.lua
